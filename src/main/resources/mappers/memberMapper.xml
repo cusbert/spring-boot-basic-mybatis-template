@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//MyBatis//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.MemberMapper">
+
+  <!-- Result Map to map table columns to Java object fields -->
+  <resultMap id="memberResultMap" type="com.example.domain.MemberVO">
+    <id property="userid" column="userid"/>
+    <result property="userpw" column="userpw"/>
+    <result property="username" column="username"/>
+    <result property="email" column="email"/>
+    <result property="regdate" column="regdate"/>
+    <result property="updatedate" column="updatedate"/>
+  </resultMap>
+
+  <insert id="insertMember" useGeneratedKeys="true" keyProperty="userid">
+    INSERT INTO tbl_member (userid, userpw, username, email, regdate, updatedate)
+    VALUES (#{userId}, #{userPw}, #{userName}, #{email}, #{regDate}, #{updateDate})
+  </insert>
+
+  <select id="readMember" resultMap="memberResultMap">
+    SELECT userid, userpw, username, email, regdate, updatedate
+    FROM tbl_member
+    WHERE userid = #{userId}
+  </select>
+
+  <update id="updateMember">
+    UPDATE tbl_member
+    SET userpw = #{userPw}, username = #{userName}, email = #{email}, updatedate = now()
+    WHERE userid = #{userId}
+  </update>
+
+  <delete id="deleteMember">
+    DELETE FROM tbl_member
+    WHERE userid = #{userId}
+  </delete>
+
+</mapper>
