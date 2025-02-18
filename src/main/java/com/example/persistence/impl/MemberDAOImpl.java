@@ -1,7 +1,9 @@
-package com.example.persistence;
+package com.example.persistence.impl;
 
 import com.example.domain.MemberVO;
 import javax.inject.Inject;
+
+import com.example.persistence.MemberDAO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
