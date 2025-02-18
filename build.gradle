@@ -32,6 +32,8 @@ dependencies {
 	implementation 'javax.servlet:jstl' // JSP Tag 라이브러리 의존성
 	implementation 'javax.inject:javax.inject:1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter' // JUnit 5 (Jupiter)
+	testImplementation 'junit:junit:4.13.2'
 }
 
 tasks.named('test') {
